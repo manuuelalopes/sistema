@@ -12,6 +12,10 @@
 <body>
    <?php include '../includes/header.php';?> 
     <main>
+        <?php 
+        
+        relatorio($conexao);
+        ?>
     </main>
     <?php  include '../includes/footer.php';?>
 </body>

@@ -18,8 +18,6 @@
             <input type="text" name="nome" id="nome"><br>
             <label for="turma">Turma</label>
             <input type="text" name="turma" id="turma"><br>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email"><br>
             <label for="nasc">Nascimento</label>
             <input type="date" name="nasc" id="nasc"><br>
             <label for="ativo">Ativo: </label> <br>
@@ -37,10 +35,10 @@
 
         try {
             $stmt = $conexao->prepare($sql);
-            $stmt->bindValue(":nome", "Manuela");
-            $stmt->bindValue(":turma", "I1D46A");
-            $stmt->bindValue(":nascimento", "2009-11-01");
-            $stmt->bindValue(":ativo", "true");
+            $stmt->bindParam(":nome", $_POST['nome']);
+            $stmt->bindParam(":turma", $_POST['turma']);
+            $stmt->bindParam(":nascimento", $_POST['nasc']);
+            $stmt->bindParam(":ativo", $_POST['ativo']);
 
             $stmt->execute();
             echo "Aluno inserido com sucesso!";
