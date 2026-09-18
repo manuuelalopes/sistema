@@ -1,3 +1,4 @@
+<?php require_once '../includes/functions.php';?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -30,21 +31,7 @@
         </form>
         <?php
         if ($_SERVER['REQUEST_METHOD'] == "POST"){
-        require_once "../database/conect.php";
-        $sql = "INSERT INTO alunos (nome, turma, nascimento, ativo) VALUES (:nome, :turma, :nascimento, :ativo)";
-
-        try {
-            $stmt = $conexao->prepare($sql);
-            $stmt->bindParam(":nome", $_POST['nome']);
-            $stmt->bindParam(":turma", $_POST['turma']);
-            $stmt->bindParam(":nascimento", $_POST['nasc']);
-            $stmt->bindParam(":ativo", $_POST['ativo']);
-
-            $stmt->execute();
-            echo "Aluno inserido com sucesso!";
-        } catch (PDOException $e) {
-            echo "Erro: " . $e->getMessage();
-        }
+        cadastrar($conexao, $_POST['nome'], $_POST['turma'], $_POST['nasc'], $_POST['ativo']);
         }
         ?>
 

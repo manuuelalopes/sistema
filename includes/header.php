@@ -5,6 +5,6 @@
         <a href="../app/delete.php">Deletar</a>
         <a href="../app/select.php">Relatorio</a>
         <a href="../app/select_w.php">Consultar</a>
-        <a href="..app/update.php">Atualizar</a>
+        <a href="../app/update.php">Atualizar</a>
     </nav>
 </header>
